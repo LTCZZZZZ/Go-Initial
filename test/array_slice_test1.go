@@ -1,5 +1,5 @@
 // go test -bench . -benchmem -gcflags "-N -l" 暂时不知道怎么用，之后再看
-package main
+package test
 
 import "testing"
 
