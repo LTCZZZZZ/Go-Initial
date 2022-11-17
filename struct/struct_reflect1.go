@@ -24,6 +24,8 @@ func main() {
 	fmt.Println(reflect.ValueOf(&u).Method(0)) // 由于上面方法定义的是*，所以这里必须要&，下面也一样
 	reflect.ValueOf(&u).MethodByName("SetAge").Call([]reflect.Value{reflect.ValueOf(10)})
 	fmt.Println(u)
+	//reflect.ValueOf(u).Elem().MethodByName("SetAge").Call([]reflect.Value{reflect.ValueOf(20)})
+	//fmt.Println(u)
 
 	var v interface{}
 	v = User{"天天", 0}
