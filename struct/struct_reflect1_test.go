@@ -57,7 +57,7 @@ func TestReflect(t *testing.T) {
 		//v.Index(i).Addr().MethodByName("DataFormat").Call(nil)
 		v.Index(i).Addr().MethodByName("DataFormat").Call([]reflect.Value{reflect.ValueOf("test")})
 
-		// 可行的方法一
+		// 可行的方法一，注意Call()方法的返回值是一个列表，一般会取第一个
 		//v.Index(i).Set(v.Index(i).MethodByName("DataFormat").Call(nil)[0])
 
 		// 可行的方法二，先转回原结构体
