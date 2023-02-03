@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 )
 
 //Student 学生
@@ -54,4 +55,13 @@ Fine, thank you. And you?
 I'm fine too.
         `)
 	fmt.Println(`end`)
+
+	var s interface{}
+	err = json.Unmarshal([]byte(str), &s)
+	if err != nil {
+		fmt.Println("json unmarshal failed!")
+		return
+	}
+	fmt.Println(reflect.TypeOf(s))
+	fmt.Println(s)
 }

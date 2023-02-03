@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"reflect"
 )
 
 //Student 学生
@@ -18,7 +19,8 @@ func main() {
 		Gender: "女",
 		name:   "pprof",
 	}
-	data, err := json.Marshal(s1)
+	//data, err := json.Marshal(s1)
+	data, err := json.Marshal(reflect.ValueOf(s1).Interface())
 	if err != nil {
 		fmt.Println("json marshal failed!")
 		return
