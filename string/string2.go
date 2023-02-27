@@ -1,16 +1,19 @@
+// 中文字符串转换、长度测试
 package main
 
 import (
-	"MyTools"
+	//"MyTools"
 	"fmt"
 	"unicode/utf8"
 )
 
 func traversalString() {
-	s := "pprof.cn博客en"
+	s := "[p.cn博客en]"
 	fmt.Println("length:", len(s))
 	fmt.Println("chinese word length:", len([]rune(s)))
 	fmt.Println("chinese word length:", utf8.RuneCountInString(s))
+
+	fmt.Println(s[:len(s)-1]) // 因为最后一个字符不是汉字所以可以这样操作，否则会打印?乱码
 
 	for i := 0; i < len(s); i++ { //byte
 		fmt.Printf("%v:%v(%c) ", i, s[i], s[i])
@@ -39,7 +42,7 @@ func traversalString() {
 	s_i[0] = 23849
 	fmt.Println(string(s_i))
 	fmt.Println(string([]int32{23442, 49232, 28373, 23985}))
-	fmt.Println(string(MyTools.PyrangeInt32(21330, 21350)))
+	//fmt.Println(string(MyTools.PyrangeInt32(21330, 21350)))
 }
 
 func changeString() {
