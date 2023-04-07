@@ -39,11 +39,19 @@ func main() {
 		return
 	}
 	fmt.Printf("json:%s\n", data)
+
 	//JSON反序列化：JSON格式的字符串-->结构体
 	str := `{"Title":"101","Students":[{"ID":0,"Gender":"男","Name":"stu00"},{"ID":1,"Gender":"男","Name":"stu01"},{"ID":2,"Gender":"男","Name":"stu02"},{"ID":3,"Gender":"男","Name":"stu03"}]}`
-	c1 := &Class{}
+
+	// 必须得赋一个初值或者new一个，否则会报错，因为c1是一个指针，如果不赋值，那么c1就是nil pointer
+	//c1 := &Class{}
+	var c1 *Class
+	c1 = new(Class)
+	fmt.Println(c1)
+
 	err = json.Unmarshal([]byte(str), c1)
 	if err != nil {
+		fmt.Println(err)
 		fmt.Println("json unmarshal failed!")
 		return
 	}
